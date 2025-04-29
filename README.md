@@ -15,4 +15,6 @@ This is a romantic, animated love letter web experience created with HTML, CSS, 
 ## 🚀 How to Use
 
 1. Clone or download this repository.
-2. Make sure your file structure includes:
+2. Make sure your file structure includes: index.html /pic/Love.jpg /music/love.mp3 /music/camera-flash.wav /css/default.css /js/...
+3. Open `index.html` in your browser.
+4. Click anywhere to start the experience ✨
