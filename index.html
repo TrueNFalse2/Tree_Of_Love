@@ -26,9 +26,12 @@
     <div class="frame">
       <img src="pic/Love.jpg" alt="Camera Frame" />
     </div>
-    <div class="caption">מכתב אהבה 📸</div>
+    <div class="caption">מכתב אהבה 📝 לחץ כאן</div>
+    </div>
   </div>
+  
   <audio id="camera-sound" src="music/camera-flash.wav" preload="auto"></audio>
+  
 
   <!-- Main content -->
   <div id="main">
@@ -85,11 +88,6 @@
     window.addEventListener("mousemove", tryPlayAudio);
     window.addEventListener("keydown", tryPlayAudio);
 
-    // המשך רגיל
-    setTimeout(() => {
-      document.getElementById("splash-screen").style.display = "none";
-      document.getElementById("main").style.display = "block";
-    }, 3000);
   };
 </script>
 
@@ -250,19 +248,41 @@
   </script>
 
 <script>
-  const media = document.getElementById("media");
+  const splash = document.getElementById("splash-screen");
+  const main = document.getElementById("main");
   const camera = document.getElementById("camera-sound");
+  const music = document.getElementById("media");
 
   function allowAudioPlayback() {
-    camera?.play().catch(() => {});
-    media?.play().catch(() => {});
+    // ניגון פלאש
+    if (camera) {
+      camera.play().then(() => {
+        console.log("📸 פלאש הופעל");
+
+        // מעבר למסך הראשי לאחר 1 שנייה
+        setTimeout(() => {
+          splash.style.display = "none";
+          main.style.display = "block";
+
+          // ניגון מוזיקה
+          if (music) {
+            music.play().catch(e => console.warn("❌ מוזיקה חסומה:", e));
+          }
+        }, 1000);
+
+      }).catch(e => console.warn("❌ פלאש נחסם:", e));
+    }
+
+    // הסרת האזנות
     document.removeEventListener("click", allowAudioPlayback);
-    document.removeEventListener("mousemove", allowAudioPlayback);
+    document.removeEventListener("keydown", allowAudioPlayback);
   }
 
+  // נדרש לפי מדיניות הדפדפן
   document.addEventListener("click", allowAudioPlayback);
-  document.addEventListener("mousemove", allowAudioPlayback);
+  document.addEventListener("keydown", allowAudioPlayback);
 </script>
+
 
 </body>
 </html>
