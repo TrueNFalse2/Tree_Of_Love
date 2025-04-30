@@ -18,3 +18,7 @@ This is a romantic, animated love letter web experience created with HTML, CSS, 
 2. Make sure your file structure includes: index.html /pic/Love.jpg /music/love.mp3 /music/camera-flash.wav /css/default.css /js/...
 3. Open `index.html` in your browser.
 4. Click anywhere to start the experience ✨
+
+חלק מהקוד בפרויקט זה מבוסס על קוד מקורי מאת **The Coding Wizard**.  
+כל הזכויות לקוד המקורי שמורות לו, בהתאם לרישיון המצורף בפרויקט המקורי.
+ קישור למקור: https://www.instagram.com/the_coding_wizard?igsh=NWtzdW8yYzE1N3Nh  
